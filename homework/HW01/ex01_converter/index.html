@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        
+        //httpGet gets random value. Now it returns string values from -50 to 50 degrees for our exercise and returns it as int
+        function httpGet(theUrl) {
+            let xmlHttp = new XMLHttpRequest();
+            
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return parseInt(xmlHttp.responseText);
+        }
+
+        function converter(tC){
+            let tF = (9 / 5) * tC + 32
+            return tF
+        }
+        //serviceURL contains adress of service which generates random int and returns it as string 
+        var serviceURL = "https://www.random.org/integers/?num=1&min=-50&max=50&col=1&base=10&format=plain&rnd=new"
+        
+        //here we call function with parameter and get Celsium temperature
+        var tC = httpGet(serviceURL)
+
+        //here we call function and store value in variable Fahrenheit temperature
+        var tF = converter(tC)
+        
+        alert("Temperature in C: " + tC + "\n" + "Temperature in F: " + Math.round( tF));
+    </script>
+</body>
+</html>

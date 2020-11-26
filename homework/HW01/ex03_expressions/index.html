@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        /*
+        два первых операнда скаладываются как численные значения,
+        а после прибавления строки все конкатенируется в строку
+        в консоли получаем 2010
+        */
+        let first = 10 + 10 + "10";
+        console.log(first);
+        
+        //схожий случай с первым, однако второй операнд является строкой и все операнды становятся приведенными сразу
+        //поэтому вывод будет 101010
+        let second = 10 + "10" + 10;
+        console.log(second);
+        
+        //
+        let third = 10 + 10 + +"10"; //(обратите внимание на пробелы, пишите также)
+        console.log(third);
+
+        //деление на 0
+        let fourth = 10 / -"";
+        console.log(fourth);
+
+        //непонимат. запятая как разделитель выражения и поэтому строка ломается?
+        let fifth = 10 / +"2,5"; //(да здесь запятая, это не опечатка)
+        console.log(fifth);
+
+    </script>
+</body>
+</html>
