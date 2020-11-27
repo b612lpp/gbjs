@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check even</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        function checkValue(num) {
+            if (num % 2 == 0) { return " четное число" }
+            else { return " нечетное число" }
+
+        }
+
+        for (let index = 0; index <= 10; index++) {
+            if (index == 0) {
+                console.log(index + " это ноль")
+            } else {
+                console.log(index + checkValue(index));
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>
