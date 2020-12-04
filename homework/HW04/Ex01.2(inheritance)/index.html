@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        //es5--------------------------------------------------------------------------------
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+
+        }
+        Post.prototype.edit = function (updatedText) {
+            return this.text = updatedText;
+        }
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            return this.highlighted = false;
+        }
+
+
+        AttachedPost.prototype = Object.create(Post.prototype)
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            return this.highlighted = true;
+        }
+
+        //инициализация и вывод данных
+        let post1 = new Post("author 1", "text 1", Date());
+        let attachedPost1 = new AttachedPost("author 2", "text 2", Date());
+        console.log(post1);
+        console.log(attachedPost1);
+        post1.edit("qq1");
+        attachedPost1.edit("qq2");
+        attachedPost1.makeTextHighlighted();
+        console.log(post1);
+        console.log(attachedPost1);
+
+
+        //es6--------------------------------------------------------------------------
+
+        class PostEs6 {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit(updatedText) {
+                return this.text = updatedText;
+            }
+        }
+
+
+        class AttachedPostEs6 extends PostEs6 {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+//инициализация и вывод данных
+let myPostEs6 = new PostEs6("Author 3", "Text 3", Date());
+let attachedPostEs6 = new
+
+    </script>
+</body>
+
+</html>
