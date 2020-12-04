@@ -69,9 +69,14 @@
                 this.highlighted = true;
             }
         }
-//инициализация и вывод данных
-let myPostEs6 = new PostEs6("Author 3", "Text 3", Date());
-let attachedPostEs6 = new
+        //инициализация и вывод данных
+        let myPostEs6 = new PostEs6("Author 3", "Text 3", Date());
+        let myAttachedPostEs6 = new AttachedPostEs6("Author 4", "Text 4", Date());
+        myPostEs6.edit("upd post text");
+        myAttachedPostEs6.edit("upd attachedpost text");
+        myAttachedPostEs6.makeTextHighlighted();
+        console.log(myPostEs6)
+        console.log(myAttachedPostEs6)
 
     </script>
 </body>
