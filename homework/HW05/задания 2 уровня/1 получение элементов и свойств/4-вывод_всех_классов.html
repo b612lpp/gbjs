@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="one two three"></div>
 
@@ -16,7 +18,17 @@
      -->
 
     <script>
-        
+        //тут либо сразу классы в массив форичем складываем либо так:
+        "use strict";
+        let collection = document.querySelector("div");
+        let classes = collection.className.split(" ");
+        classes.forEach(e => {
+            console.log(e)
+        })
+
+
+
     </script>
 </body>
+
 </html>
