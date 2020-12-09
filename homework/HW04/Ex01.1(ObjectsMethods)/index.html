@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        //es5 -----------------------------------------------------------------------------
+        //описываем объект
+        function Product(name, price) {
+            this.modelName = name;
+            this.modelPrice = price;
+        }
+
+        //инициализируем объект
+        let phone = new Product("Model 1", 1000);
+
+
+
+        //Добавляем метод расчета фиксированной скидки 25%
+        Product.prototype.make25PercentDiscount = function () {
+            return this.modelPrice * 0.75
+        };
+
+
+        //es6 --------------------------------------------------------------------------------
+        class ProductEs6 {
+            constructor(name, price) {
+                this.modelName = name;
+                this.modelPrice = price;
+
+            }
+
+            make25PercentDiscount() {
+                return this.modelPrice * 0.75;
+            }
+        }
+        let phone2 = new ProductEs6("Model 2", 2000)
+
+        console.log("Product name - " + phone.modelName + " Цена модели со скидкой - " + phone.make25PercentDiscount());
+        console.log("Product name - " + phone2.modelName + " Цена модели со скидкой - " + phone2.make25PercentDiscount());
+
+
+    </script>
+</body>
+
+</html>
