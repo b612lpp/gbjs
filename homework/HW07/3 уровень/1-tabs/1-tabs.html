@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,7 +22,7 @@
                 <a class="nav-link" href="#">Link 3</a>
             </li>
         </ul>
-    
+
         <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
     </div>
 
@@ -34,8 +33,37 @@
     2. В зависимости от того по какому .nav-link кликнули нужно чтобы менялся текст
     в .text, соответствующие тексты вы найдете в app.js
     -->
-    
+
     <script src="app.js"></script>
+    <script>
+        "use strict";
+        const allNavLinks = document.querySelectorAll(".nav-link");
+        allNavLinks.forEach(el => {
+            el.addEventListener("click", swapClass);
+
+        })
+
+        function swapClass(event) {
+            allNavLinks.forEach(el => {
+                //не сообразил как перехватить предыдущий элемент для удаления класса поэтому чистим все
+                el.classList.remove("active");
+            })
+            event.target.classList.add("active");
+            let tabID = event.target.innerText.slice(-1);
+            changeText(tabID)
+            console.log(tabID)
+        }
+
+        function changeText(tabID) {
+            for (const key in texts) {
+                if (key.slice(-1) == tabID) {
+                    //console.log(texts[key])
+                    document.querySelector(".text").innerText = texts[key];
+                }
+
+            }
+        }
+    </script>
 </body>
 
 </html>

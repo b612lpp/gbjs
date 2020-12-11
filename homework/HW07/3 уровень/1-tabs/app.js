@@ -20,7 +20,7 @@ const texts = {
 function clickHandler(event) {
     // здесь вызывайте changeText и changeActiveClass, и передавайте
     // им объект события.
-   
+
 }
 
 /**
@@ -29,7 +29,12 @@ function clickHandler(event) {
  * @param {MouseEvent} event 
  */
 function changeActiveClass(event) {
-    
+    allNavLinks.foreach(el => {
+        el.classlist.remove("active");
+    })
+
+    event.target.classlist.add("active");
+
 }
 
 /**
@@ -39,5 +44,5 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
-    
+
 }
