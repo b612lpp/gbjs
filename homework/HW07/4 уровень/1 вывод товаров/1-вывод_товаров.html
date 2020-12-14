@@ -24,6 +24,11 @@
     <script src="app.js"></script>
     <script>
         "use strict";
+        const prodField = document.querySelector(".products");
+        let btns = document.querySelectorAll("button");
+        btns.forEach(el => {
+            el.addEventListener("click", clickHandler);
+        })
     </script>
 </body>
 
